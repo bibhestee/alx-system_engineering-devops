@@ -1,2 +1,2 @@
 #!/bin/bash
-if whoami=guillaume chown betty ./hello
+chown -h -R --from=guillaume betty ./hello
