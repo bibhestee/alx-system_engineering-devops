@@ -1,2 +1,2 @@
 #!/bin/bash
-if whoami=guillaume: chown betty ./hello
+if whoami=guillaume chown betty ./hello
