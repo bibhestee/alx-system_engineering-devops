@@ -1,2 +1,2 @@
 #!/bin/bash
-tr c | tr C
+tr [:alpha:] c | tr [:alpha:] C
