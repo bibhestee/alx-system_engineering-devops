@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -DRa 
+find . -type f -print | wc -l
