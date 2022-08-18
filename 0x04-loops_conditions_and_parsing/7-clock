@@ -6,10 +6,10 @@
 min=1;
 hour=0
 echo "Hour:" "$hour";
-while [ $min -lt 60 ] && [ $hour -lt 12 ]; do
+while [ $min -lt 60 ] && [ $hour -lt 13 ]; do
 	echo $min;
 	((min++));
-	if ((min == 60)); then
+	if [ $min -eq 60 ] && [ $hour -ne 12 ]; then
 		((hour++));
 		echo "Hour:" "$hour";
 		((min=1));
