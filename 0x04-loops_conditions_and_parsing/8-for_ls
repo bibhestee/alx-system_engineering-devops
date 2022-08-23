@@ -4,8 +4,8 @@
 # In a list format
 # Where only the part of the name after the first dash is displayed (refer to the example)
 
-ls *-* | cut -c 3- | tr \- ' ' > list;
-for i in `cat list`; do
+find ./ -type f -name '[0-9]*' | cut -c 5- | tr - ' ' > list;
+for i in $(< list tr ' ' '\n'); do
 	echo "$i";
 done
 	 
