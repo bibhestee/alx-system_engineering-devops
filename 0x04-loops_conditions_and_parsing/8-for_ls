@@ -3,9 +3,6 @@
 # The content of the current directory
 # In a list format
 # Where only the part of the name after the first dash is displayed (refer to the example)
-
-find ./ -type f -name '[0-9]*' | cut -c 5- | tr - ' ' > list;
-for i in $(< list tr ' ' '\n'); do
-	echo "$i";
-done
 	 
+ls | grep -Eo '\-(\w+\.?\w+)' | cut -c 2- > list
+cat list
