@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script modifies the client configuration file
+# Requirements
+#   SSH client configuration must use the private key ~/.ssh/school
+#   SSH client configuration must refuse to authenticate using a password
+sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication withoutpassword/g' /etc/ssh/ssh_config
+sudo sed -i 's/#   IdentityFile ~/.ssh/id_rsa /   IdentityFile ~/.ssh/school/g' /etc/ssh/ssh_config
