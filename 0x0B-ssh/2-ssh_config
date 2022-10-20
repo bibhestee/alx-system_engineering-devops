@@ -3,5 +3,6 @@
 # Requirements
 #   SSH client configuration must use the private key ~/.ssh/school
 #   SSH client configuration must refuse to authenticate using a password
-sudo sed -i 's/^#\s*Pass\w*\s\w*/PasswordAuthentication withoutpassword/g' /etc/ssh/ssh_config
-sudo sed -i 's/^#\s*\w*\s~\/\S\w*\Sid_rsa/IdentityFile ~\/\.ssh\/school/g' /etc/ssh/ssh_config
+Host 100.26.225.121
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
