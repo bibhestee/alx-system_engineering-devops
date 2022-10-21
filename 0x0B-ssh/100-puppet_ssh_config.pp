@@ -1,5 +1,9 @@
 # configure a SSH client configuration using puppet
 
-exec {'Host':
-  command => 'Host 100.26.225.121\nPasswordAuthentication no\nIdentityFile ~/.ssh/school',
+exec {'Sed':
+  command => 'sudo sed -i 's/^#   PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/ssh_config,
+}
+
+exec {'sed':
+  command => 'sudo sed -i 's/^#   IdentityFile ~\/.ssh\/id_rsa /IdentityFile ~\/.ssh\/school/g' /etc/ssh/ssh_config,
 }
