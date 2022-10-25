@@ -4,6 +4,7 @@
 #       The value of the custom HTTP header must be the hostname of the server Nginx is running on
 # Update apt package
 exec {'apt-update':
+  user    => root,
   command => '/usr/bin/apt-get update'
 }
 
