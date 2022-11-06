@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This Bash script will display information about subdomains.
+# Requirement:
+#	The script must accept 2 arguments:
+#	domain:
+#		type: string
+#		what: domain name to audit
+#		mandatory: yes
+#	subdomain:
+#		type: string
+#		what: specific subdomain to audit
+#		mandatory: no
+#	Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+#	When only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02 - in this specific order
+#	When passing domain and subdomain parameters, display information for the specified subdomain
+DOMAIN=$1
+SUB_DOMAIN=$2
+
+func () {
+	if [ -n "$1" ] && [ -z "$2" ]; then
+		dig "www.${DOMAIN}" | grep -A1 "ANSWER SECTION:" | grep -P '^\w' | awk '{ print "The subdomain www is a " $4 " record and points to " $5}'
+		dig "lb-01.${DOMAIN}" | grep -A1 "ANSWER SECTION:" | grep -P '^\w' | awk '{ print "The subdomain lb-01 is a " $4 " record and points to " $5}'
+		dig "web-01.${DOMAIN}" | grep -A1 "ANSWER SECTION:" | grep -P '^\w' | awk '{ print "The subdomain web-01 is a " $4 " record and points to " $5}'
+		dig "web-02.${DOMAIN}" | grep -A1 "ANSWER SECTION:" | grep -P '^\w' | awk '{ print "The subdomain web-02 is a " $4 " record and points to " $5}'
+	elif [ -n "$2" ]; then
+		dig "${SUB_DOMAIN}.${DOMAIN}" | grep -A1 "ANSWER SECTION:" | grep -P '^\w' | awk -v SUB=${SUB_DOMAIN} '{ print "The subdomain " SUB " is a " $4 " record and points to " $5 }'
+	fi
+}
+func $1 $2

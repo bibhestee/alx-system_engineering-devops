@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# This bash script fix the bug on the docker container running Apache 
+# This bash script fix the bug on the docker container running Apache 2 
 # Problem statement:
 #	The docker runs successfully while curled on port 80 but it must be resolved to run successfully while curled on port 8080
-sudo sed -i 's/80/8080/' /etc/apache2/ports.conf
-sudo sed -i 's/80/8080/' /etc/apache2/sites-available/000-default.conf
-sudo service apache2 restart
+sed -i 's/80/8080/' /etc/apache2/ports.conf
+sed -i 's/80/8080/' /etc/apache2/sites-available/000-default.conf
+service apache2 restart
