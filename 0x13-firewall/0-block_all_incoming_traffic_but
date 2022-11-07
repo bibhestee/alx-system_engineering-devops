@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# Comment
-sudo apt-get update -y
+# This script installs a firewall if not installed.
+# It setup some rules for the behavior of the uncomplicated firewall (ufw)
+# The script assign some rules that allow the incoming traffic from the following:
+#	22 (SSH)
+#	443 (HTTPS SSL)
+#	80 (HTTP)
+# then it blocks all incoming traffic apart from the ones above.
+sudo apt-get update -y 
 sudo apt-get install ufw -y
 sudo ufw default deny incoming
 sudo ufw allow 22
