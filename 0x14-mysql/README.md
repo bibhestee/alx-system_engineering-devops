@@ -30,4 +30,3 @@
 
 ### 5. MySQL backup
 	- dump MySQL databases 
-
