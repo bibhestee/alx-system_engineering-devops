@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script compress a mysql dump file with date as name format
 sudo mysqldump -uroot -p ${1} mysql > backup.sql
 name="$(date '+%d-%m-%Y')"
 tar -zcvf "${name}.tar.gz"  backup.sql
