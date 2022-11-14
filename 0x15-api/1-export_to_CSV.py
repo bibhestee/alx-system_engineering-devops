@@ -31,7 +31,10 @@ def api_data():
     details = response_2.json()
 
     user = details.get('username')
-    with open('USER_ID.csv', 'w') as f:
+    u_id = details.get('id')
+    file_path = '{}.csv'.format(u_id)
+
+    with open(file_path, 'w') as f:
         file = csv.writer(f, delimiter=',',
                           quotechar='"', quoting=csv.QUOTE_ALL)
         for task in tasks:
