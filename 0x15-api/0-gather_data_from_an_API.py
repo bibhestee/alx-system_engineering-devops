@@ -24,6 +24,7 @@ tasks = response.json()
 details = response_2.json()
 
 if __name__ == "__main__":
+    # Main
     user = details.get('name')
     total_task = len(tasks)
     done_task = 0
