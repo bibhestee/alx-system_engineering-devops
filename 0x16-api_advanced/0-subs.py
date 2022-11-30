@@ -7,7 +7,6 @@
 
 
 def number_of_subscribers(subreddit):
-    """ Number_of_subscribers: This function queries the Reddit API """
     import requests
 
     url = f'https://www.reddit.com/r/{subreddit}.json'
