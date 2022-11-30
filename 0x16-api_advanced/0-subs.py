@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""This script takes input from the command line
-then process data from the Reddit API with the specified subreddit.
+"""This script func process data from Reddit API with the specified subreddit.
 """
 
 
