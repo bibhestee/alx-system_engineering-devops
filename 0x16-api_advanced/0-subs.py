@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""This script func process data from Reddit API with the specified subreddit.
+"""
+    This module provides a function that sends a get request to the Reddit API
+    with the specified subreddit then process the response to get the total
+    number of subscriber for a subreddit..
 """
 
 
