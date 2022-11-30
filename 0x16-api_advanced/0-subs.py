@@ -2,21 +2,22 @@
 
 """
     This script takes input from the command line
-    then process data from the Reddit API with the specified endpoint.
+    then process data from the Reddit API with the specified subreddit.
 """
 
 
-def number_of_subscribers(endpoint):
+def number_of_subscribers(subreddit):
     """
     Number_of_subscribers: This function queries the Reddit API
     Args:
-        endpoint (str): The api endpoint to send a get request to.
+        subreddit (str): The api subreddit to send a get request to.
     Return: The number of subscribers (not active users, total subscribers)
             for a given subreddit. If an invalid subreddit is given,
             the function should return 0.
     """
     import requests
-    url = f'https://www.reddit.com/r/{endpoint}.json'
+
+    url = f'https://www.reddit.com/r/{subreddit}.json'
     headers = {'User-Agent': 'MyServer/1.0'}
 
     response = requests.get(url, headers=headers)
