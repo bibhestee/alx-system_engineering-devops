@@ -2,10 +2,8 @@
 """
     This module provides a function that sends a get request to the Reddit API
     with the specified subreddit then process the response to get the total
-    number of subscriber for a subreddit..
+    number of subscriber for a subreddit.
 """
-import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
@@ -17,8 +15,8 @@ def number_of_subscribers(subreddit):
             for a given subreddit. If an invalid subreddit is given,
             the function should return 0.
     """
-
-    url = f'https://www.reddit.com/r/{subreddit}.json'
+    import requests
+    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
     headers = {'User-Agent': 'MyServer/1.0'}
 
     response = requests.get(url, headers=headers)
