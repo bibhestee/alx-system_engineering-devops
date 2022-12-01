@@ -16,7 +16,7 @@ def top_ten(subreddit):
 
     import requests
 
-    url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     params = {'limit': 10}
     headers = {'User-Agent': 'MyServer/1.0'}
 
