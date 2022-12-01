@@ -3,12 +3,11 @@
     A function that queries the Reddit API and returns the total
     number of subscriber for a subreddit.
 """
+import requests
 
 
 def number_of_subscribers(subreddit):
     """ This function queries the Reddit API """
-
-    import requests
 
     url = f'https://www.reddit.com/r/{subreddit}.json'
     headers = {'User-Agent': 'MyServer/1.0'}
