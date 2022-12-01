@@ -22,10 +22,10 @@ def top_ten(subreddit):
 
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print('None')
+        print(None)
     try:
         children = response.json()['data']['children']
         for child in children:
             print(child['data'].get('title'))
     except IndexError:
-        print('None')
+        print(None)
