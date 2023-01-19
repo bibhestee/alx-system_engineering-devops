@@ -1,9 +1,16 @@
 # configure a SSH client configuration using puppet
 
-exec {'Sed':
-  command => 'sudo sed -i 's/^#   PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/ssh_config,
+file_line { 'Turn off passwd auth':
+          ensure  => 'present',
+          path    => '/etc/ssh/ssh_config',
+          line    => '   PasswordAuthentication no',
+          replace => 'true'
 }
 
-exec {'sed':
-  command => 'sudo sed -i 's/^#   IdentityFile ~\/.ssh\/id_rsa /IdentityFile ~\/.ssh\/school/g' /etc/ssh/ssh_config,
+file_line { 'Declare identity file':
+          ensure  => 'present',
+          path    => '/etc/ssh/ssh_config',
+          line    => '   IdentityFile ~/.ssh/school',
+          replace => 'true',
+          match   => ' IdentityFile ~/.ssh/id_rsa'
 }
