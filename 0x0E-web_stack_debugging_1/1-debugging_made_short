@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Modify the nginx config to allow the server to work on port 80
+# script was used to debug a webserver to allow nginx serve a site on port 80
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
